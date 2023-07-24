@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+   int n,i,bit[100];
+   printf("\nEnter no.of.bits in data word:");
+   scanf("%d",&n);
+   printf("\nEnter the data word:");
+   for(i=0;i<n;i++)
+   {
+      scanf("%d",&bit[i]);
+   }
+   printf("\nThe given data word is:");
+   for(i=0;i<n;i++)
+   {
+      printf("%d",bit[i]);
+   }
+   int cbit=n+1;
+   int count=0;
+   for(i=0;i<n;i++)
+   {
+      if(bit[i]==1)
+      {
+         count++;
+      }
+   }
+   int parity=(count%2==0)?0:1;
+   bit[n]=parity;
+   printf("\nThe generated code word is:");
+   for(i=0;i<n+1;i++)
+   {
+      printf("%d",bit[i]);
+   }
+   printf("\nAt Reciever Side,\n");
+   printf("\nEnter no.of bits in code word:");
+   scanf("%d",&n);
+   printf("\nEnter the code word:");
+   for(i=0;i<n;i++)
+   {
+      scanf("%d",&bit[i]);
+   }
+   count=0;
+   for(i=0;i<n;i++)
+   {
+      if(bit[i]==1)
+      {
+         count++;
+      }
+   }   if(count%2 !=0)
+   {
+      printf("\nError detected!\n");
+   }
+   else
+   {
+      printf("\nNo Error....Code word accepted!\n");
+   }
+}
